@@ -1,0 +1,350 @@
+/* === ОБЩИЕ СТИЛИ === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #0a0a0a;
+  color: #e0e0e0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* === ЭКРАН ЛОГИНА === */
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a1a 100%);
+}
+
+.login-box {
+  background: #1a1a2e;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #e74c3c33;
+  box-shadow: 0 0 40px #e74c3c22;
+}
+
+.login-box h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #e74c3c;
+}
+
+.login-box p {
+  color: #888;
+  margin-bottom: 24px;
+}
+
+.login-box input {
+  width: 280px;
+  padding: 12px 16px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #0a0a15;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-box button {
+  width: 280px;
+  padding: 12px;
+  background: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-box button:hover {
+  background: #c0392b;
+}
+
+.error {
+  color: #e74c3c;
+  margin-top: 12px;
+}
+
+/* === ГЛАВНАЯ ПАНЕЛЬ === */
+.main-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background: #16213e;
+  padding: 16px 24px;
+  border-bottom: 2px solid #e74c3c44;
+}
+
+.header h1 {
+  color: #e74c3c;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.status-bar {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.status-bar span {
+  background: #0a0a1a;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+/* === КОНТЕНТ === */
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* === ЧАТ === */
+.chat-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #222;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #111;
+  border-bottom: 1px solid #222;
+}
+
+.chat-header h2 {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.chat-indicator {
+  font-size: 13px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  display: flex;
+  gap: 10px;
+  max-width: 85%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bot-message {
+  align-self: flex-start;
+}
+
+.user-message {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.bot-message .message-avatar {
+  background: #2d1f1f;
+}
+
+.user-message .message-avatar {
+  background: #1f2d1f;
+}
+
+.message-content {
+  background: #1a1a2e;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.user-message .message-content {
+  background: #1a2e1a;
+}
+
+.message-commands {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
+  font-size: 12px;
+  color: #e74c3c;
+}
+
+/* === ВВОД ЧАТА === */
+.chat-input-area {
+  display: flex;
+  padding: 12px 16px;
+  gap: 8px;
+  background: #111;
+  border-top: 1px solid #222;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background: #0a0a15;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.chat-input-area input:focus {
+  border-color: #e74c3c;
+}
+
+.chat-input-area button {
+  padding: 12px 24px;
+  background: #e74c3c;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.chat-input-area button:hover {
+  background: #c0392b;
+}
+
+.chat-input-area button:disabled {
+  background: #555;
+  cursor: wait;
+}
+
+/* === БОКОВАЯ ПАНЕЛЬ === */
+.side-panel {
+  width: 300px;
+  overflow-y: auto;
+  padding: 16px;
+  background: #0d0d1a;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-panel h3 {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cmd-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: left;
+  transition: 0.2s;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.cmd-btn:hover {
+  background: #2a2a3e;
+  border-color: #e74c3c;
+}
+
+.freeze-btn:hover {
+  border-color: #3498db;
+  background: #1a1a3e;
+}
+
+.secret-btn {
+  border-color: #e74c3c44;
+  background: #2a0a0a;
+}
+
+.secret-btn:hover {
+  border-color: #e74c3c;
+  background: #3a1a1a;
+}
+
+.players-info, .keys-info {
+  background: #111;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+
+.no-data {
+  color: #555;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 13px;
+}
+
+.player-item:last-child {
+  border-bottom: none;
+}
+
+/* === СКРОЛЛБАР === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}

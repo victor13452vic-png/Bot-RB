@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 Horror Bot — Панель Управления</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ЭКРАН АВТОРИЗАЦИИ -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-box">
+      <h1>🔒 Horror Bot</h1>
+      <p>Панель управления AI-монстром</p>
+      <input type="password" id="passwordInput" placeholder="Введи пароль..."
+             onkeypress="if(event.key==='Enter')login()">
+      <button onclick="login()">Войти</button>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+
+  <!-- ГЛАВНАЯ ПАНЕЛЬ -->
+  <div id="mainPanel" class="main-panel" style="display:none">
+
+    <!-- ШАПКА -->
+    <div class="header">
+      <h1>🎮 Horror Bot Control</h1>
+      <div class="status-bar">
+        <span id="statusPlayers">👥 Игроки: —</span>
+        <span id="statusRadius">📡 Радиус: —</span>
+        <span id="statusSpeed">⚡ Скорость: —</span>
+        <span id="statusFreeze">❄️ Заморозка: —</span>
+      </div>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="content">
+
+      <!-- ЧАТ С AI -->
+      <div class="chat-section">
+        <div class="chat-header">
+          <h2>💬 Чат с AI Монстром</h2>
+          <div class="chat-indicator" id="chatIndicator">🟢 Онлайн</div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              <p>Привет, создатель! Я готов охотиться. Что прикажешь?</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-area">
+          <input type="text" id="chatInput" placeholder="Напиши сообщение боту..."
+                 onkeypress="if(event.key==='Enter')sendMessage()">
+          <button onclick="sendMessage()" id="sendBtn">Отправить</button>
+        </div>
+      </div>
+
+      <!-- БОКОВАЯ ПАНЕЛЬ -->
+      <div class="side-panel">
+
+        <!-- БЫСТРЫЕ КОМАНДЫ -->
+        <div class="quick-commands">
+          <h3>⚡ Быстрые Команды</h3>
+
+          <button onclick="quickCommand('Покажи игрокам страшный текст')"
+                  class="cmd-btn">📝 Страшный текст</button>
+
+          <button onclick="quickCommand('Заморозь всех игроков')"
+                  class="cmd-btn freeze-btn">❄️ Заморозка</button>
+
+          <button onclick="quickCommand('Преследуй ближайшего игрока')"
+                  class="cmd-btn">🏃 Гнаться</button>
+
+          <button onclick="quickCommand('Остановись и не двигайся')"
+                  class="cmd-btn">🛑 Стоп</button>
+
+          <button onclick="quickCommand('Мигни светом для атмосферы')"
+                  class="cmd-btn">💡 Мигнуть светом</button>
+
+          <button onclick="quickCommand('Проиграй страшный звук jumpscare')"
+                  class="cmd-btn">🔊 Скример</button>
+        </div>
+
+        <!-- СЕКРЕТНЫЕ КОМАНДЫ -->
+        <div class="secret-commands">
+          <h3>🔐 Секретные</h3>
+
+          <button onclick="quickCommand('Аннулируй все ключи у всех игроков')"
+                  class="cmd-btn secret-btn">🗝️ Аннулировать ключи</button>
+        </div>
+
+        <!-- ИНФОРМАЦИЯ ОБ ИГРОКАХ -->
+        <div class="players-info">
+          <h3>👥 Игроки</h3>
+          <div id="playersList">
+            <p class="no-data">Нет данных</p>
+          </div>
+        </div>
+
+        <!-- КЛЮЧИ -->
+        <div class="keys-info">
+          <h3>🔑 Ключи</h3>
+          <div id="keysInfo">
+            <p class="no-data">Нет данных</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
